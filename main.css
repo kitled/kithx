@@ -1,10 +1,10 @@
 @font-face {
     font-family: sauceCodeProNerd;
-    src: url(fonts/Sauce_Code_Pro_Nerd_Font_Complete.ttf);
+    src: url(style/fonts/Sauce_Code_Pro_Nerd_Font_Complete.ttf);
 }
 @font-face {
     font-family: sourceSansPro;
-    src: url(fonts/SourceSansPro_Regular.otf);
+    src: url(style/fonts/SourceSansPro_Regular.otf);
 }
 
 body {
