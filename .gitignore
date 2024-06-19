@@ -1,0 +1,9 @@
+# data
+data/logs.db
+
+# logs
+logs/
+
+# VSCode
+.vscode/
+
