@@ -1,0 +1,22 @@
+
+@font-face {
+    font-family: sauceCodeProNerd;
+    src: url(Sauce_Code_Pro_Nerd_Font_Complete.ttf);
+}
+@font-face {
+    font-family: sourceSansPro;
+    src: url(SourceSansPro_Regular.otf);
+}
+
+body {
+    font-family: sourceSansPro;
+}
+
+h3 {
+    font-family: sauceCodeProNerd;
+    color: white;
+}
+
+/* p {
+    font-size: x-large;
+} */
