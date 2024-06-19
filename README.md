@@ -1,7 +1,5 @@
 >🚧 　*Unready.* 　🡆 **WiP!**　 🚧
 
-
-
 # kit🌐hx
 
 *Hypermedia. Lean & **fast**.*
@@ -16,4 +14,3 @@
 <!--
 - See it live [🔗kit.gdn](https://kit.gdn/ "my personal website!")
 -->
-
