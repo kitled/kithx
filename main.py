@@ -20,6 +20,9 @@ app = FastHTML(hdrs=(picolink,
                      MarkdownJS('.markdown')))
 rt = app.route
 
+
+# This line ensures that the static files are served from the static folder.
+# (req. for favicon, CSS etc.)
 @rt("/{fname:path}.{ext:static}")
 async def get(fname:str, ext:str): return FileResponse(f'{fname}.{ext}')
 
@@ -50,7 +53,7 @@ def get():
 @rt("/log/{id}")
 def get(id:int):
     log = logs[id]
-    return Page(
+    return Main(
         log.title, 
         P(log.done), 
         A("Go back", href="/log"),
