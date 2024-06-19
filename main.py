@@ -29,7 +29,7 @@ def render(log):
 # Home page (Cover page)
 @rt("/")
 def get():
-    hero = Div(H1("kit.gdn"), Code("""We'll def test():"""), P("TEST le thing"))
+    hero = Div(H1("kit.gdn"), Code("""We'll def test():"""), P("TEST llm"))
     return Title("Hello, World!"), Main(hero, cls='container')
     # logs_list = Ul(*map(render, logs()))
     # return Page("kit's home", 
