@@ -4,7 +4,8 @@ from fasthtml.js import MarkdownJS, SortableJS
 
 # 𝚔𝚒𝚝 custom CSS
 #       - fonts: sauceCodeProNerd, sourceSansPro
-fontlink = Link(rel="stylesheet", href="/main.css", type="text/css")
+fontlink = Link(rel="stylesheet", href="/style/fonts.css", type="text/css")
+css = Style(':root {--pico-font-size: 100%; }')
 
 db = database('db/logs-test-001.db')
 logs = db.t.logs
@@ -12,11 +13,15 @@ if logs not in db.t:
     logs.create(id=int, title=str, done=bool, name=str, details=str, priority=int, pk='id')
 Log = logs.dataclass()
 
-app = FastHTML(hdrs=(picolink, fontlink,
-                     Style(':root { --pico-font-size: 100%; }'),
+app = FastHTML(hdrs=(picolink,
+                     css,
+                     fontlink,
                      SortableJS('.sortable', 'todo-list'),
                      MarkdownJS('.markdown')))
 rt = app.route
+
+@rt("/{fname:path}.{ext:static}")
+async def get(fname:str, ext:str): return FileResponse(f'{fname}.{ext}')
 
 def render(log):
     return Li(A(log.title, href=f"/log/{log.id}"))
@@ -24,7 +29,8 @@ def render(log):
 # Home page (Cover page)
 @rt("/")
 def get():
-    return Title("Hello, World!"), H1("kit.gdn"), P("TEST le thing")
+    hero = Div(H1("kit.gdn"), Code("""We'll def test():"""), P("TEST le thing"))
+    return Title("Hello, World!"), Main(hero, cls='container')
     # logs_list = Ul(*map(render, logs()))
     # return Page("kit's home", 
     # P("Check out my super log!"), 
