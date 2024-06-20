@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from fasthtml.common import *
 from fasthtml.js import MarkdownJS, SortableJS
 
+
 # 𝚔𝚒𝚝 custom CSS
 #       - fonts: sauceCodeProNerd, sourceSansPro
 fontlink = Link(rel="stylesheet", href="/style/fonts.css", type="text/css")
@@ -14,7 +15,7 @@ if logs not in db.t:
     logs.create(id=int, title=str, done=bool, name=str, details=str, priority=int, pk='id')
 Log = logs.dataclass()
 
-app = FastHTMLWithLiveReload(hdrs=(picocdn,
+app = FastHTML(hdrs=(picocdn,
                      css,
                      fontlink,
                      SortableJS('.sortable', 'todo-list'),
@@ -30,7 +31,7 @@ async def get(fname:str, ext:str): return FileResponse(f'{fname}.{ext}')
 def render(log):
     return Li(A(log.title, href=f"/log/{log.id}"))
 
-hd = Header(H1(" 🧰 kit.gdn"), cls='hd')
+hd = Header(H1("🧰 kit.gdn"), cls='hd')
 menu = Div(P(A("Notes", href="/log")), P(A("Demos", href="/llm")), cls='grid')
 body = Body(Code("""We'll def test():"""), P("TEST llm for real this time"))
 ft = Footer(P("© 2024 kit.gdn"), cls='ft')
